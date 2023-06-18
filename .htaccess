@@ -1,2 +1,2 @@
 RewriteEngine on
-ErrorDocument 404   https://nodx.my.id/404.html
+ErrorDocument 404 /404.html
