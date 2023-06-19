@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login and Registration Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: 100px;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .container h2 {
+      text-align: center;
+    }
+    .container input[type="text"],
+    .container input[type="password"] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      border-radius: 4px;
+    }
+    .container button {
+      background-color: #4CAF50;
+      color: #ffffff;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 4px;
+    }
+    .container button:hover {
+      background-color: #45a049;
+    }
+    .toggle-form {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="login-form">
+      <label for="login-username">Username:</label>
+      <input type="text" id="login-username" required>
+      <label for="login-password">Password:</label>
+      <input type="password" id="login-password" required>
+      <button type="submit">Login</button>
+      <div class="toggle-form">Don't have an account? <a href="#" id="toggle-register">Register</a></div>
+    </form>
+
+    <form id="register-form" style="display: none;">
+      <h2>Register</h2>
+      <label for="register-username">Username:</label>
+      <input type="text" id="register-username" required>
+      <label for="register-password">Password:</label>
+      <input type="password" id="register-password" required>
+      <button type="submit">Register</button>
+      <div class="toggle-form">Already have an account? <a href="#" id="toggle-login">Login</a></div>
+    </form>
+  </div>
+
+  <script>
+    var loginForm = document.getElementById("login-form");
+    var registerForm = document.getElementById("register-form");
+    var toggleRegisterLink = document.getElementById("toggle-register");
+    var toggleLoginLink = document.getElementById("toggle-login");
+
+    toggleRegisterLink.addEventListener("click", function(event) {
+      event.preventDefault();
+      loginForm.style.display = "none";
+      registerForm.style.display = "block";
+    });
+
+    toggleLoginLink.addEventListener("click", function(event) {
+      event.preventDefault();
+      loginForm.style.display = "block";
+      registerForm.style.display = "none";
+    });
+
+    loginForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+      var username = document.getElementById("login-username").value;
+      var password = document.getElementById("login-password").value;
+
+      // You can add your login logic here
+      // For example, you can check if the username and password are valid
+      // and then redirect the user to another page
+
+      console.log("Login - Username: " + username);
+      console.log("Login - Password: " + password);
+    });
+
+    registerForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+      var username = document.getElementById("register-username").value;
+      var password = document.getElementById("register-password").value;
+
+      // You can add your registration logic here
+      // For example, you can store the new user in a database
+
+      console.log("Register - Username: " + username);
+      console.log("Register - Password: " + password);
+    });
+  </script>
+</body>
+</html>
