@@ -1,26 +1,134 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Halaman Register dan Login</title>
-  <link rel="stylesheet" type="text/css" href="/Login/style.css">
+  <title>Login and Register Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .form-group input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .form-group input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .form-bottom {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    function validateLoginForm() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      if (username === "" || password === "") {
+        alert("Please enter both username and password.");
+        return false;
+      }
+
+      // Add your own validation logic here if needed
+
+      return true;
+    }
+
+    function validateRegisterForm() {
+      var newUsername = document.getElementById("new-username").value;
+      var newPassword = document.getElementById("new-password").value;
+      var email = document.getElementById("email").value;
+
+      if (newUsername === "" || newPassword === "" || email === "") {
+        alert("Please fill in all the fields.");
+        return false;
+      }
+
+      // Add your own validation logic here if needed
+
+      return true;
+    }
+  </script>
 </head>
 <body>
   <div class="container">
-    <h1>Halaman Register dan Login</h1>
-    <div id="register-form" class="form">
-      <h2>Pendaftaran</h2>
-      <input type="text" id="register-username" placeholder="Username" required>
-      <input type="password" id="register-password" placeholder="Password" required>
-      <button type="submit" onclick="register()">Daftar</button>
-    </div>
-    <div id="login-form" class="form">
-      <h2>Masuk</h2>
-      <input type="text" id="login-username" placeholder="Username" required>
-      <input type="password" id="login-password" placeholder="Password" required>
-      <button type="submit" onclick="login()">Masuk</button>
-    </div>
-  </div>
+    <h2>Login</h2>
+    <form action="#" method="post" onsubmit="return validateLoginForm()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+      </div>
 
-  <script src="/Login/script.js"></script>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="Login">
+      </div>
+
+      <div class="form-bottom">
+        <a href="forgotpassword.html">Forgot password?</a>
+      </div>
+    </form>
+
+    <h2>Register</h2>
+    <form action="#" method="post" onsubmit="return validateRegisterForm()">
+      <div class="form-group">
+        <label for="new-username">Username</label>
+        <input type="text" id="new-username" name="new-username" placeholder="Enter a username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="new-password">Password</label>
+        <input type="password" id="new-password" name="new-password" placeholder="Enter a password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="Register">
+      </div>
+    </form>
+  </div>
 </body>
 </html>
