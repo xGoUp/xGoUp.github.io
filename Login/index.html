@@ -22,6 +22,7 @@
 
     h2 {
       text-align: center;
+      color: #333;
     }
 
     .form-group {
@@ -31,24 +32,37 @@
     .form-group label {
       display: block;
       font-weight: bold;
+      margin-bottom: 5px;
     }
 
     .form-group input[type="text"],
     .form-group input[type="password"] {
       width: 100%;
-      padding: 8px;
+      padding: 10px;
       border: 1px solid #ccc;
       border-radius: 3px;
     }
 
     .form-group button {
       width: 100%;
-      padding: 8px;
+      padding: 10px;
       background-color: #4caf50;
       color: #fff;
       border: none;
       border-radius: 3px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-group button:hover {
+      background-color: #45a049;
+    }
+
+    .form-group .alternate-link {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: #333;
     }
   </style>
 </head>
@@ -67,9 +81,12 @@
       <div class="form-group">
         <button type="submit">Login</button>
       </div>
+      <p class="alternate-link">Belum punya akun? <a href="#register">Daftar di sini</a></p>
     </form>
-    <hr>
-    <h2>Register</h2>
+  </div>
+
+  <div class="container">
+    <h2 id="register">Register</h2>
     <form id="register-form">
       <div class="form-group">
         <label for="register-username">Username</label>
@@ -82,47 +99,8 @@
       <div class="form-group">
         <button type="submit">Register</button>
       </div>
+      <p class="alternate-link">Sudah punya akun? <a href="#login">Login di sini</a></p>
     </form>
   </div>
-
-  <script>
-    // JavaScript untuk menangani form login
-    const loginForm = document.getElementById('login-form');
-
-    loginForm.addEventListener('submit', function(e) {
-      e.preventDefault(); // Mencegah form untuk submit
-
-      // Mendapatkan nilai input username dan password
-      const username = document.getElementById('login-username').value;
-      const password = document.getElementById('login-password').value;
-
-      // Lakukan validasi login
-      if (username === 'admin' && password === 'password') {
-        alert('Login berhasil!');
-        // Tambahkan logika redirect ke halaman berikutnya
-      } else {
-        alert('Username atau password salah!');
-      }
-    });
-
-    // JavaScript untuk menangani form register
-    const registerForm = document.getElementById('register-form');
-
-    registerForm.addEventListener('submit', function(e) {
-      e.preventDefault(); // Mencegah form untuk submit
-
-      // Mendapatkan nilai input username dan password
-      const username = document.getElementById('register-username').value;
-      const password = document.getElementById('register-password').value;
-
-      // Lakukan validasi registrasi (misalnya, memeriksa kecocokan password atau unik username)
-      if (username && password) {
-        alert('Registrasi berhasil!');
-        // Tambahkan logika untuk menyimpan data registrasi ke database atau melakukan tindakan lainnya
-      } else {
-        alert('Username dan password harus diisi!');
-      }
-    });
-  </script>
 </body>
 </html>
