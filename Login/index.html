@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Register & Login Page</title>
-  <link rel="stylesheet" type="text/css" href="/Login/style.css">
+  <title>Halaman Register dan Login</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
   <div class="container">
-    <div class="form-container">
-      <h1>Register</h1>
-      <form id="register-form">
-        <input type="text" id="register-username" placeholder="Username" required>
-        <input type="password" id="register-password" placeholder="Password" required>
-        <button type="submit">Register</button>
-      </form>
+    <h1>Halaman Register dan Login</h1>
+    <div id="register-form" class="form">
+      <h2>Pendaftaran</h2>
+      <input type="text" id="register-username" placeholder="Username" required>
+      <input type="password" id="register-password" placeholder="Password" required>
+      <button type="submit" onclick="register()">Daftar</button>
     </div>
-    <div class="form-container">
-      <h1>Login</h1>
-      <form id="login-form">
-        <input type="text" id="login-username" placeholder="Username" required>
-        <input type="password" id="login-password" placeholder="Password" required>
-        <button type="submit">Login</button>
-      </form>
+    <div id="login-form" class="form">
+      <h2>Masuk</h2>
+      <input type="text" id="login-username" placeholder="Username" required>
+      <input type="password" id="login-password" placeholder="Password" required>
+      <button type="submit" onclick="login()">Masuk</button>
     </div>
   </div>
 
-  <script src="/Login/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
