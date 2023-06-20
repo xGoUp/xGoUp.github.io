@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login and Register Page</title>
+  <title>Login & Register Page</title>
   <style>
+    /* CSS untuk styling halaman */
     body {
       font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
+      background-color: #f4f4f4;
       margin: 0;
       padding: 0;
     }
 
     .container {
       max-width: 400px;
-      margin: 0 auto;
-      padding: 40px;
+      margin: 50px auto;
       background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
@@ -29,106 +31,98 @@
     .form-group label {
       display: block;
       font-weight: bold;
-      margin-bottom: 5px;
     }
 
-    .form-group input {
+    .form-group input[type="text"],
+    .form-group input[type="password"] {
       width: 100%;
-      padding: 10px;
-      border-radius: 4px;
+      padding: 8px;
       border: 1px solid #ccc;
+      border-radius: 3px;
     }
 
-    .form-group input[type="submit"] {
-      background-color: #4CAF50;
+    .form-group button {
+      width: 100%;
+      padding: 8px;
+      background-color: #4caf50;
       color: #fff;
+      border: none;
+      border-radius: 3px;
       cursor: pointer;
     }
-
-    .form-group input[type="submit"]:hover {
-      background-color: #45a049;
-    }
-
-    .form-bottom {
-      text-align: center;
-      margin-top: 20px;
-    }
   </style>
-  <script>
-    function validateLoginForm() {
-      var username = document.getElementById("username").value;
-      var password = document.getElementById("password").value;
-
-      if (username === "" || password === "") {
-        alert("Please enter both username and password.");
-        return false;
-      }
-
-      // Add your own validation logic here if needed
-
-      return true;
-    }
-
-    function validateRegisterForm() {
-      var newUsername = document.getElementById("new-username").value;
-      var newPassword = document.getElementById("new-password").value;
-      var email = document.getElementById("email").value;
-
-      if (newUsername === "" || newPassword === "" || email === "") {
-        alert("Please fill in all the fields.");
-        return false;
-      }
-
-      // Add your own validation logic here if needed
-
-      return true;
-    }
-  </script>
 </head>
 <body>
   <div class="container">
     <h2>Login</h2>
-    <form action="#" method="post" onsubmit="return validateLoginForm()">
+    <form id="login-form">
       <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        <label for="login-username">Username</label>
+        <input type="text" id="login-username" required>
       </div>
-
       <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" required>
       </div>
-
       <div class="form-group">
-        <input type="submit" value="Login">
-      </div>
-
-      <div class="form-bottom">
-        <a href="forgotpassword.html">Forgot password?</a>
+        <button type="submit">Login</button>
       </div>
     </form>
-
+    <hr>
     <h2>Register</h2>
-    <form action="#" method="post" onsubmit="return validateRegisterForm()">
+    <form id="register-form">
       <div class="form-group">
-        <label for="new-username">Username</label>
-        <input type="text" id="new-username" name="new-username" placeholder="Enter a username" required>
+        <label for="register-username">Username</label>
+        <input type="text" id="register-username" required>
       </div>
-
       <div class="form-group">
-        <label for="new-password">Password</label>
-        <input type="password" id="new-password" name="new-password" placeholder="Enter a password" required>
+        <label for="register-password">Password</label>
+        <input type="password" id="register-password" required>
       </div>
-
       <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-      </div>
-
-      <div class="form-group">
-        <input type="submit" value="Register">
+        <button type="submit">Register</button>
       </div>
     </form>
   </div>
+
+  <script>
+    // JavaScript untuk menangani form login
+    const loginForm = document.getElementById('login-form');
+
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault(); // Mencegah form untuk submit
+
+      // Mendapatkan nilai input username dan password
+      const username = document.getElementById('login-username').value;
+      const password = document.getElementById('login-password').value;
+
+      // Lakukan validasi login
+      if (username === 'admin' && password === 'password') {
+        alert('Login berhasil!');
+        // Tambahkan logika redirect ke halaman berikutnya
+      } else {
+        alert('Username atau password salah!');
+      }
+    });
+
+    // JavaScript untuk menangani form register
+    const registerForm = document.getElementById('register-form');
+
+    registerForm.addEventListener('submit', function(e) {
+      e.preventDefault(); // Mencegah form untuk submit
+
+      // Mendapatkan nilai input username dan password
+      const username = document.getElementById('register-username').value;
+      const password = document.getElementById('register-password').value;
+
+      // Lakukan validasi registrasi (misalnya, memeriksa kecocokan password atau unik username)
+      if (username && password) {
+        alert('Registrasi berhasil!');
+        // Tambahkan logika untuk menyimpan data registrasi ke database atau melakukan tindakan lainnya
+      } else {
+        alert('Username dan password harus diisi!');
+      }
+    });
+  </script>
 </body>
 </html>
